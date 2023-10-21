@@ -51,7 +51,7 @@ func _process(delta):
 
 func _physics_process(delta: float) -> void:
 	direction_move = Input.get_vector("left_move", "right_move", "up_move", "down_move")
-	print(direction_move)
+	# print(direction_move)
 	face_direction(direction_move.x)
 	player_movement.update(delta)
 	update_crouching()
@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 	# calculan cosas
 	move_and_slide()
 	# el frame como tal
-	update_animation(direction_move)
+	update_animation_parameters(direction_move)
 func update_stamina():
 	if stamina < max_stamina:
 		stamina += 1
@@ -74,7 +74,7 @@ func above_head_is_empty() -> bool:
 	var result = !crouch_raycast1.is_colliding() && !crouch_raycast2.is_colliding()
 	return result
 
-func update_animation(direction):
+func update_animation_parameters(direction):
 	animation_tree.set("parameters/Move/blend_position", direction.x)
 	pass
 #	if Input.is_action_just_pressed("attack"):

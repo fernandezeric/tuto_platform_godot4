@@ -32,12 +32,12 @@ func move():
 	elif player.direction_move.x == 0:
 		player.velocity.x = move_toward(player.direction_move.x, 0.0, FRICTION * tick)
 
-	if Input.is_action_just_pressed("jump") and player.is_on_floor():
-		player.velocity.y = JUMP_VELOCITY
-		air_jump = true
-	elif Input.is_action_just_pressed("jump") and not player.is_on_floor() and air_jump:
-		player.velocity.y = JUMP_VELOCITY * 0.5
-		air_jump = false
+	#if Input.is_action_just_pressed("jump") and player.is_on_floor():
+	#	player.velocity.y = JUMP_VELOCITY
+	#	air_jump = true
+	#elif Input.is_action_just_pressed("jump") and not player.is_on_floor() and air_jump:
+	#	player.velocity.y = JUMP_VELOCITY * 0.5
+	#	air_jump = false
 	
 func update_gravity():
 	if not player.is_on_floor():
@@ -55,7 +55,7 @@ func wall_slide():
 	if player.velocity.y >= 0:
 		player.velocity.y = 0 #player.velocity.y * 0.5
 	
-	print(Input.is_action_pressed("down_move"))
+	# print(Input.is_action_pressed("down_move"))
 	if Input.is_action_pressed("down_move"):
 		player.velocity.y = 10
 
