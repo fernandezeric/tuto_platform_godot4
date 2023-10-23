@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ypn7umv2qti"
-path="res://.godot/imported/_Attack2NoMovement.png-ef8e6a8f9b616b750692d85e76229051.ctex"
+uid="uid://bdvtl2shdr8om"
+path="res://.godot/imported/_Dash.png-086fc8afe7b3dbecf57fe90694d02762.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Boss/_Attack2NoMovement.png"
-dest_files=["res://.godot/imported/_Attack2NoMovement.png-ef8e6a8f9b616b750692d85e76229051.ctex"]
+source_file="res://Assets/Art/Enemy_1/_Dash.png"
+dest_files=["res://.godot/imported/_Dash.png-086fc8afe7b3dbecf57fe90694d02762.ctex"]
 
 [params]
 

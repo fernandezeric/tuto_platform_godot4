@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdvtl2shdr8om"
-path="res://.godot/imported/_Dash.png-84d5a134095bb8a706b498117da9e0bd.ctex"
+uid="uid://b34wcuptgwhmc"
+path="res://.godot/imported/_Idle.png-a4a5174bc7e1737d85e51c5238064683.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Boss/_Dash.png"
-dest_files=["res://.godot/imported/_Dash.png-84d5a134095bb8a706b498117da9e0bd.ctex"]
+source_file="res://Assets/Art/Enemy_1/_Idle.png"
+dest_files=["res://.godot/imported/_Idle.png-a4a5174bc7e1737d85e51c5238064683.ctex"]
 
 [params]
 

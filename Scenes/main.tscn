@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://qadj7x2fgjnb"]
+[gd_scene load_steps=7 format=3 uid="uid://qadj7x2fgjnb"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_dfekc"]
 [ext_resource type="PackedScene" uid="uid://biitfeakcnict" path="res://Scenes/tile_map.tscn" id="1_tghu1"]
 [ext_resource type="PackedScene" uid="uid://cptpa7fmn2jxm" path="res://Scenes/player.tscn" id="2_hqr5g"]
 [ext_resource type="Texture2D" uid="uid://ivatdhkcq436" path="res://Assets/Art/FreePlatformerNA/Mockup.png" id="3_w3yed"]
 [ext_resource type="PackedScene" uid="uid://ikldjxtkhsvo" path="res://Scenes/parallax_background_1.tscn" id="4_ae7it"]
+[ext_resource type="PackedScene" uid="uid://tua7eifkbids" path="res://Scenes/enemy_1.tscn" id="6_8vrcy"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_dfekc")
@@ -12,10 +13,13 @@ script = ExtResource("1_dfekc")
 [node name="TileMap" parent="." instance=ExtResource("1_tghu1")]
 
 [node name="Player" parent="." instance=ExtResource("2_hqr5g")]
-position = Vector2(43, 156)
+position = Vector2(31, 107)
 
 [node name="Mockup" type="Sprite2D" parent="."]
 position = Vector2(-1372, 471)
 texture = ExtResource("3_w3yed")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_ae7it")]
+
+[node name="Enemy_1" parent="." instance=ExtResource("6_8vrcy")]
+position = Vector2(361, 503)

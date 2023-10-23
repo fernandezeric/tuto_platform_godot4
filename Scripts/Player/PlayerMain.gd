@@ -7,14 +7,13 @@ class_name Character
 # @onready var ap: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var player_movement: PlayerMovement = $Movement
+@onready var player_attack: PlayerAttack = $Attack
+@onready var state_machine: CharacterStateMachine = $CharacterStateMachine
 
 @onready var cshape = $CollisionShape2D
 @onready var crouch_raycast1 = $CrouchRaycast_1
 @onready var crouch_raycast2 = $CrouchRaycast_2
-
-@onready var player_movement: PlayerMovement = $Movement
-@onready var player_attack: PlayerAttack = $Attack
-@onready var state_machine: CharacterStateMachine = $CharacterStateMachine
 
 # crouch
 var bool_axis_x: bool = false
@@ -54,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	# print(direction_move)
 	face_direction(direction_move.x)
 	player_movement.update(delta)
-	update_crouching()
+	#update_crouching()
 	#update_stamina()
 	# calculan cosas
 	move_and_slide()
@@ -75,8 +74,7 @@ func above_head_is_empty() -> bool:
 	return result
 
 func update_animation_parameters(direction):
-	animation_tree.set("parameters/Move/blend_position", direction.x)
-	pass
+	animation_tree.set("parameters/move/blend_position", direction.x)
 #	if Input.is_action_just_pressed("attack"):
 #		ap.play("attack")
 #	elif is_on_floor():
@@ -99,7 +97,7 @@ func update_animation_parameters(direction):
 #			ap.play("fall")
 
 func update_crouching():
-	if Input.is_action_just_pressed("crouch") and not is_on_wall_only() and is_on_floor():
+	if Input.is_action_just_pressed("crouch") and is_on_floor():
 		crouch()
 	elif Input.is_action_just_released("crouch"):
 		if above_head_is_empty():

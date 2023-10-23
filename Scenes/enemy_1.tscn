@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://tua7eifkbids"]
+
+[ext_resource type="Texture2D" uid="uid://b34wcuptgwhmc" path="res://Assets/Art/Enemy_1/_Idle.png" id="1_fbl3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6hpy"]
+size = Vector2(26.5, 50)
+
+[node name="Enemy_1" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_fbl3x")
+hframes = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 15)
+shape = SubResource("RectangleShape2D_j6hpy")

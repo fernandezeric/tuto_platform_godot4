@@ -3,7 +3,7 @@ extends State
 class_name AirState
 
 @export var AIR_JUMP_VELOCITY: float = -200.0
-@export var landing_state: State
+@export var fall_state: State
 @export var ground_state: State
 @export var fall_animation_name: String = "fall"
 @export var air_animation_name: String = "jump"
@@ -26,8 +26,10 @@ func on_exit():
 
 func double_jump():
   character.velocity.y = AIR_JUMP_VELOCITY
+  playback.travel(air_animation_name)
   has_double_jump = true
 
 func _on_animation_tree_animation_finished(anim_name:StringName):
   if(anim_name == air_animation_name):
+    next_state = fall_state
     playback.travel(fall_animation_name)

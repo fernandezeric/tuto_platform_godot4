@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buyjfxml44kuh"
-path="res://.godot/imported/_Roll.png-a39b0bf14bb7e2af8f1144d550c57cb2.ctex"
+uid="uid://dsgbg8yo2urum"
+path="res://.godot/imported/_Run.png-1e0e38ac86eda8b1368df84e29606bbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Boss/_Roll.png"
-dest_files=["res://.godot/imported/_Roll.png-a39b0bf14bb7e2af8f1144d550c57cb2.ctex"]
+source_file="res://Assets/Art/Enemy_1/_Run.png"
+dest_files=["res://.godot/imported/_Run.png-1e0e38ac86eda8b1368df84e29606bbb.ctex"]
 
 [params]
 

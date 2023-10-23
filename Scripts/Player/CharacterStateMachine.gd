@@ -14,11 +14,10 @@ func _ready():
 		if(child is State):
 			states.append(child)
 
-			# set the state up with what they to function
 			child.character = character
 			child.playback = animation_tree["parameters/playback"]
 		else:
-			push_warning("Child " + child.name + "is not a State for CharacterStateMachine")
+			push_warning("Child " + child.name + " is not a State for CharacterStateMachine")
 
 func _physics_process(delta):
 	if(current_state.next_state != null):
