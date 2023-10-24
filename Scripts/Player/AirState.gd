@@ -7,6 +7,7 @@ class_name AirState
 @export var ground_state: State
 @export var fall_animation_name: String = "fall"
 @export var air_animation_name: String = "jump"
+@export var ground_animation_name: String = "move"
 
 var has_double_jump: bool = false
 
@@ -20,7 +21,7 @@ func state_input(event: InputEvent):
 
 func on_exit():
   if(next_state == ground_state):
-    #playback.travel(landing_animation_name)
+    playback.travel(ground_animation_name)
     has_double_jump = false
 
 

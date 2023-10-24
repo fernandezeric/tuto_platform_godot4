@@ -10,10 +10,17 @@ class_name GroundState
 
 @export var air_state: State
 @export var attack_state: State
+@export var fall_state: State
 
 @export var jump_animation: String = "jump"
+@export var fall_animation: String = "fall"
 @export var crouch_animation: String = "crouch"
 @export var attack_animation: String = "attack_1"
+
+func state_process(delta):
+  if(character.is_on_floor() != true):
+    next_state = fall_state
+    playback.travel(fall_animation)
 
 func state_input(event: InputEvent):
   if(event.is_action_pressed("jump")):
