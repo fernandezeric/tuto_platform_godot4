@@ -30,6 +30,6 @@ scale = Vector2(2.44648, 0.810104)
 position = Vector2(609, 241)
 
 [node name="Enemy_3" parent="." instance=ExtResource("6_8vrcy")]
-position = Vector2(363, 99)
+position = Vector2(179, 13)
 
 [node name="HealthChangeManager" parent="." instance=ExtResource("7_e2rv3")]
