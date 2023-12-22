@@ -259,8 +259,10 @@ states/death/node = SubResource("AnimationNodeAnimation_xgoce")
 states/death/position = Vector2(646, 100)
 transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_wcbxi"), "Move", "death", SubResource("AnimationNodeStateMachineTransition_fsiep")]
 
-[node name="Enemy_1" type="CharacterBody2D"]
+[node name="Enemy_1" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
+collision_layer = 4
 script = ExtResource("1_5y468")
+hit_state = NodePath("CharacterStateMachine/Hit")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -297,9 +299,19 @@ script = ExtResource("6_t1e8g")
 script = ExtResource("6_t1e8g")
 can_move = false
 
-[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "dead_state")]
+[node name="Hit" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("7_c7ai4")
-damageable = NodePath("../../Damageable")
-dead_state = NodePath("../Death")
+can_move = false
+damageable = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("3_ahnub"),"health":35.0,"dead_animation_name":"death")
+
+dead_state = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("6_t1e8g"),"can_move":false)
+
+return_state = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("6_t1e8g"),"can_move":true)
+
+
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
+wait_time = 0.25
+one_shot = true
 
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]

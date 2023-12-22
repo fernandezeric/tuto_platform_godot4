@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cptpa7fmn2jxm"]
+[gd_scene load_steps=58 format=3 uid="uid://cptpa7fmn2jxm"]
 
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMain.gd" id="1_jsj0c"]
 [ext_resource type="Texture2D" uid="uid://dbwpcuya6hvy3" path="res://Assets/Art/Player/_Idle.png" id="1_y1y3v"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/StateDebugLabel.gd" id="17_ytjsb"]
 [ext_resource type="Script" path="res://Scripts/Player/AttackState.gd" id="18_61w88"]
 [ext_resource type="Script" path="res://Scripts/Player/Sword.gd" id="20_fymqc"]
+[ext_resource type="Script" path="res://Scripts/Player/FacingCollisionShape2D.gd" id="21_kaln0"]
 
 [sub_resource type="Animation" id="Animation_fphbu"]
 length = 0.001
@@ -670,6 +671,7 @@ size = Vector2(53, 42)
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
+collision_layer = 2
 script = ExtResource("1_jsj0c")
 
 [node name="Movement" type="Node2D" parent="."]
@@ -748,13 +750,20 @@ text = "State: "
 script = ExtResource("17_ytjsb")
 state_machine = NodePath("../CharacterStateMachine")
 
-[node name="Sword" type="Area2D" parent="."]
+[node name="Sword" type="Area2D" parent="." node_paths=PackedStringArray("character", "facing_shape")]
+collision_layer = 0
+collision_mask = 4
 monitoring = false
 script = ExtResource("20_fymqc")
+character = NodePath("..")
+facing_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
 position = Vector2(40, -20)
 shape = SubResource("RectangleShape2D_gwn22")
+script = ExtResource("21_kaln0")
+facing_left_position = Vector2(-40, -20)
+facin_right_position = Vector2(40, -20)
 
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Air" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]

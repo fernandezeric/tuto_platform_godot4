@@ -38,6 +38,8 @@ var flip_h_px: int = 5
 # wall
 var in_wall: bool = false
 
+signal facing_direction_changed(facing_right: bool)
+
 func _ready():
 	animation_tree.active = true
 	player_movement.setup(self)
@@ -67,6 +69,7 @@ func face_direction(axis_x):
 	if axis_x != 0:
 		bool_axis_x = (axis_x == -1)
 		sprite.flip_h = bool_axis_x
+		emit_signal("facing_direction_changed", !sprite.flip_h)
 		sprite.position.x = axis_x * flip_h_px if bool_axis_x else axis_x
 
 func above_head_is_empty() -> bool:

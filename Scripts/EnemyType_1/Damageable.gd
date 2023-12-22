@@ -2,7 +2,7 @@ extends Node
 
 class_name Damageable
 
-signal on_hit(node: Node, damage_taken: int)
+signal on_hit(node: Node, damage_taken: int, knockback_direction: Vector2)
 
 @export var health: float = 35:
   get:
@@ -13,10 +13,10 @@ signal on_hit(node: Node, damage_taken: int)
 
 @export var dead_animation_name: String = "death"
 
-func hit(damage: float):
+func hit(damage: float, knockback_direction: Vector2):
   health -= damage
 
-  emit_signal("on_hit", get_parent(), damage)
+  emit_signal("on_hit", get_parent(), damage, knockback_direction)
 
 func _on_animation_tree_animation_finished(anim_name: StringName):
   if(anim_name == dead_animation_name):
